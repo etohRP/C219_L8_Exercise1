@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elyse - Personal Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="animations.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        font-family: 'Karla', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #5e544e;
+    }
+
+    .container {
+        border-radius: 2%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ebdcd3;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    header img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        color: #6b3411;
+        font-family: "Poppins", sans-serif;
+    }
+
+    button{
+        color: #6b3411;
+        background-color: #5c555000;
+        border: none;
+    }
+
+    #job-title,
+    #age {
+        color: #5c5550;
+    }
+
+    #description {
+        margin: 20px 0;
+    }
+
+    #counter {
+        margin-top: 20px;
+        font-size: 24px;
+        color: #b87800;
+    }
+
+    #number-counter {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <header>
+            <img id="profile-img" src="images/photo1704159000.jpeg" alt="Your Name">
+            <h1 id="name">Elyse</h1>
+            <p id="job-title">Student</p>
+            <p id="age">Age: 18</p>
+        </header>
+        <section id="description">
+            <p>
+                Hello! I am currently studying in Republic Polytechnic, Diploma of Digital Design
+                and Development. Something I can never get sick of is matcha! Anything matcha flavoured is nice!
+            </p>
+        </section>
+        <section id="counter">
+            <p id="number-counter">100</p>
+            <p>Followers</p>
+        </section>
+        <button id="animateButton"><i class="fa fa-heart"></i></button>
+    </div>
+    <script>
+        anime({
+            targets: 'header *',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            delay: anime.stagger(100),
+            easing: 'easeInOutQuad'
+        });
+
+        anime({
+            targets: '#description p',
+            opacity: [0, 1],
+            translateY: [50, 0],
+            easing: 'easeInOutQuad',
+            delay: 300
+        });
+
+        anime({
+            targets: '#number-counter',
+            textContent: [0, 100],
+            round: 1,
+            easing: 'easeInOutQuad',
+            duration: 1500,
+        });
+
+        document.getElementById('profile-img').addEventListener('click', function () {
+            anime({
+                targets: 'img',
+                translateX: [-20, 20],
+                duration: 1000,
+                loop: 2,
+                direction: 'alternate',
+                easing: 'easeInOutQuad'
+            });
+        });
+    </script>
+</body>
+
+</html>
